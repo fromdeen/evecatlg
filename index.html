@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grace Club - Premium Social Media Management</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -12,20 +12,18 @@
             --deep-red: #8B0000;
             --crimson: #DC143C;
             --burgundy: #800020;
-            --dark-red: #722F37;
-            --light-gray: #F8F8F8;
-            --medium-gray: #E5E5E5;
-            --dark-gray: #D0D0D0;
             --text-black: #1A1A1A;
             --text-gray: #2F2F2F;
-            --pure-white: #FFFFFF;
+            --light-gray: #F8F8F8;
+            --medium-gray: #E8E8E8;
             --off-white: #FEFEFE;
+            --pure-white: #FFFFFF;
             --shadow-light: rgba(165, 42, 42, 0.1);
             --shadow-medium: rgba(165, 42, 42, 0.2);
             --shadow-heavy: rgba(165, 42, 42, 0.3);
             --shadow-dark: rgba(0, 0, 0, 0.1);
             --gradient-red: linear-gradient(135deg, #A52A2A 0%, #8B0000 100%);
-            --gradient-light: linear-gradient(135deg, #F8F8F8 0%, #FFFFFF 100%);
+            --gradient-light: linear-gradient(135deg, #FEFEFE 0%, #F8F8F8 100%);
         }
 
         * {
@@ -41,11 +39,12 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: var(--light-gray);
+            background: var(--gradient-light);
             color: var(--text-black);
             overflow-x: hidden;
             line-height: 1.6;
             position: relative;
+            min-height: 100vh;
         }
 
         /* Film grain effect */
@@ -56,7 +55,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><filter id="noise"><feTurbulence baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter></defs><rect width="100" height="100" filter="url(%23noise)" opacity="0.02"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch"/></filter></defs><rect width="100%" height="100%" filter="url(%23noiseFilter)" opacity="0.03"/></svg>');
             pointer-events: none;
             z-index: 1;
             animation: grain 8s steps(10) infinite;
@@ -76,9 +75,9 @@
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 100%;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 1rem;
             position: relative;
             z-index: 2;
         }
@@ -89,11 +88,11 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(248, 248, 248, 0.95);
+            background: rgba(254, 254, 254, 0.95);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--medium-gray);
             z-index: 1000;
-            padding: 1rem 0;
+            padding: 0.8rem 0;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -106,9 +105,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1400px;
+            max-width: 100%;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1rem;
         }
 
         .nav-logo {
@@ -116,7 +115,7 @@
             align-items: center;
             gap: 0.8rem;
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             font-weight: 800;
             color: var(--text-black);
             text-decoration: none;
@@ -128,8 +127,8 @@
         }
 
         .nav-logo-icon {
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             background: var(--gradient-red);
             border-radius: 50%;
             display: flex;
@@ -152,53 +151,24 @@
 
         .nav-logo-icon i {
             color: white;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             z-index: 1;
         }
 
         .nav-actions {
             display: flex;
             align-items: center;
-            gap: 2rem;
-        }
-
-        .nav-link {
-            color: var(--text-black);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-red);
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .navbar.scrolled .nav-link,
-        .navbar.scrolled .nav-logo {
-            color: white;
+            gap: 1rem;
         }
 
         .cta-nav {
             background: var(--gradient-red);
             color: white;
-            padding: 0.8rem 1.8rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 4px 15px var(--shadow-light);
         }
@@ -206,6 +176,71 @@
         .cta-nav:hover {
             transform: translateY(-3px);
             box-shadow: 0 8px 25px var(--shadow-medium);
+        }
+
+        .navbar.scrolled .nav-logo {
+            color: white;
+        }
+
+        /* Audio Controls */
+        .audio-controls {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            z-index: 1000;
+            background: var(--pure-white);
+            backdrop-filter: blur(20px);
+            padding: 0.8rem;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px var(--shadow-dark);
+            border: 1px solid var(--medium-gray);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .audio-controls:hover {
+            transform: scale(1.05);
+        }
+
+        .audio-toggle {
+            background: none;
+            border: none;
+            color: var(--primary-red);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .audio-toggle:hover {
+            background: var(--light-gray);
+        }
+
+        .audio-toggle.playing {
+            background: var(--gradient-red);
+            color: white;
+            animation: musicPulse 2s ease-in-out infinite;
+        }
+
+        .audio-label {
+            font-size: 0.7rem;
+            color: var(--text-gray);
+            font-weight: 500;
+            display: none;
+        }
+
+        @keyframes musicPulse {
+            0%, 100% { box-shadow: 0 0 0 0 var(--shadow-medium); }
+            50% { box-shadow: 0 0 0 8px rgba(165, 42, 42, 0); }
         }
 
         /* Hero Section */
@@ -217,7 +252,8 @@
             position: relative;
             background: var(--gradient-light);
             overflow: hidden;
-            padding-top: 100px;
+            padding-top: 80px;
+            padding-bottom: 2rem;
         }
 
         .hero-bg-pattern {
@@ -231,63 +267,55 @@
                 radial-gradient(circle at 20% 50%, var(--primary-red) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, var(--crimson) 0%, transparent 50%),
                 radial-gradient(circle at 40% 80%, var(--burgundy) 0%, transparent 50%);
-            animation: patternFloat 12s ease-in-out infinite alternate;
+            animation: patternFloat 15s ease-in-out infinite alternate;
         }
 
         @keyframes patternFloat {
-            0% { transform: translateY(0) scale(1); opacity: 0.05; }
-            100% { transform: translateY(-30px) scale(1.1); opacity: 0.08; }
+            0% { transform: translateY(0) scale(1) rotate(0deg); opacity: 0.05; }
+            100% { transform: translateY(-30px) scale(1.1) rotate(1deg); opacity: 0.08; }
         }
 
         .hero-content {
             text-align: center;
             z-index: 10;
             position: relative;
-            max-width: 900px;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--pure-white);
-            color: var(--primary-red);
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 10px 30px var(--shadow-dark);
-            border: 1px solid var(--medium-gray);
-            animation: fadeInUp 1s ease-out 0.2s both;
+            max-width: 100%;
+            width: 100%;
         }
 
         .hero-logo {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
-            animation: fadeInUp 1s ease-out 0.4s both;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
         }
 
-        .logo-icon {
-            width: 120px;
-            height: 120px;
+        .grace-club-logo {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-heart {
+            width: 60px;
+            height: 60px;
             background: var(--gradient-red);
-            border-radius: 25px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 
-                0 20px 50px var(--shadow-medium),
-                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+                0 15px 40px var(--shadow-medium),
+                inset 0 2px 0 rgba(255, 255, 255, 0.3);
             position: relative;
             overflow: hidden;
             animation: logoFloat 6s ease-in-out infinite;
         }
 
-        .logo-icon::before {
+        .logo-heart::before {
             content: '';
             position: absolute;
             top: -50%;
@@ -298,206 +326,78 @@
             animation: logoRotate 8s linear infinite;
         }
 
-        .logo-icon i {
+        .logo-heart i {
             color: white;
-            font-size: 3.5rem;
+            font-size: 2rem;
             z-index: 1;
             filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
         }
 
         .logo-text {
             font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
+            font-size: 2.5rem;
             font-weight: 900;
             color: var(--text-black);
-            letter-spacing: -2px;
+            letter-spacing: -1px;
             line-height: 1.1;
             text-shadow: 0 4px 8px var(--shadow-dark);
+            position: relative;
+        }
+
+        .logo-text::after {
+            content: 'By Evelyn';
+            position: absolute;
+            bottom: -20px;
+            right: 0;
+            font-family: 'Crimson Text', serif;
+            font-size: 0.8rem;
+            font-style: italic;
+            color: var(--primary-red);
+            font-weight: 400;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--primary-red);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            text-shadow: 0 4px 8px var(--shadow-light);
         }
 
         .hero-subtitle {
-            font-family: 'Crimson Text', serif;
-            font-size: 1.6rem;
+            font-size: 1rem;
             color: var(--text-gray);
-            font-style: italic;
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
             animation: fadeInUp 1s ease-out 0.6s both;
+            padding: 0 1rem;
         }
 
-        .hero-description {
-            font-size: 1.2rem;
-            color: var(--text-gray);
-            margin-bottom: 3.5rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.7;
-            animation: fadeInUp 1s ease-out 0.8s both;
-        }
-
-        .hero-cta {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease-out 1s both;
-        }
-
-        .btn-primary {
-            background: var(--gradient-red);
-            color: white;
-            padding: 1.3rem 3rem;
-            border: none;
-            border-radius: 60px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            box-shadow: 0 8px 25px var(--shadow-medium);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 40px var(--shadow-heavy);
-        }
-
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--primary-red);
-            padding: 1.3rem 3rem;
-            border: 2px solid var(--primary-red);
-            border-radius: 60px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary-red);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px var(--shadow-medium);
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 3rem;
-            left: 50%;
-            transform: translateX(-50%);
-            color: var(--primary-red);
-            cursor: pointer;
-            animation: bounce 2s infinite;
-            font-size: 2rem;
-            z-index: 10;
-        }
-
-        /* Pricing Section */
-        .pricing-section {
-            padding: 8rem 0;
-            background: var(--pure-white);
-            position: relative;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 6rem;
-            position: relative;
-        }
-
-        .section-badge {
-            display: inline-block;
-            background: var(--gradient-red);
-            color: white;
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            font-weight: 900;
-            color: var(--primary-red);
-            margin-bottom: 2rem;
-            line-height: 1.1;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-
-        .section-subtitle {
-            font-size: 1.3rem;
-            color: var(--text-gray);
-            max-width: 700px;
-            margin: 0 auto;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-        }
-
+        /* Pricing Grid */
         .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2.5rem;
-            max-width: 1300px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 100%;
             margin: 0 auto;
-            position: relative;
+            animation: fadeInUp 1s ease-out 0.8s both;
+            padding: 0 0.5rem;
         }
 
         .pricing-card {
             background: var(--pure-white);
-            border-radius: 25px;
-            padding: 3rem 2.5rem;
+            border-radius: 15px;
+            padding: 2rem 1.5rem;
             position: relative;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 
-                0 15px 40px var(--shadow-dark),
-                inset 0 1px 0 rgba(255, 255, 255, 0.8);
-            border: 1px solid var(--medium-gray);
+            box-shadow: 0 8px 25px var(--shadow-dark);
+            border: 2px solid var(--medium-gray);
             overflow: hidden;
-            animation: fadeInUp 0.8s ease-out both;
-        }
-
-        .pricing-card:nth-child(1) {
-            animation-delay: 0.2s;
-        }
-
-        .pricing-card:nth-child(2) {
-            animation-delay: 0.4s;
-        }
-
-        .pricing-card:nth-child(3) {
-            animation-delay: 0.6s;
+            cursor: pointer;
+            width: 100%;
         }
 
         .pricing-card::before {
@@ -506,7 +406,7 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 5px;
+            height: 4px;
             background: var(--gradient-red);
             transform: scaleX(0);
             transition: transform 0.5s ease;
@@ -514,50 +414,33 @@
         }
 
         .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 
-                0 30px 60px var(--shadow-medium),
-                0 15px 40px var(--shadow-dark);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px var(--shadow-heavy);
+            border-color: var(--primary-red);
         }
 
         .pricing-card:hover::before {
             transform: scaleX(1);
         }
 
-        .pricing-card.featured {
-            background: linear-gradient(135deg, var(--pure-white) 0%, #FFFEF8 100%);
-            transform: scale(1.02);
-            box-shadow: 
-                0 25px 60px var(--shadow-medium),
-                0 15px 40px var(--shadow-dark);
-            border: 2px solid var(--primary-red);
+        .pricing-card.active {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px var(--shadow-heavy);
+            border-color: var(--primary-red);
         }
 
-        .featured-badge {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--gradient-red);
-            color: white;
-            padding: 0.6rem 1.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 8px 20px var(--shadow-medium);
+        .pricing-card.active::before {
+            transform: scaleX(1);
         }
 
         .package-header {
             text-align: center;
-            margin-bottom: 2.5rem;
-            position: relative;
+            margin-bottom: 1.5rem;
         }
 
         .package-name {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             font-weight: 800;
             color: var(--text-black);
             margin-bottom: 1rem;
@@ -566,10 +449,10 @@
 
         .price-container {
             background: var(--light-gray);
-            padding: 2.5rem 2rem;
-            border-radius: 18px;
+            padding: 1.5rem 1rem;
+            border-radius: 12px;
             text-align: center;
-            margin-bottom: 2.5rem;
+            margin-bottom: 1.5rem;
             position: relative;
             overflow: hidden;
             border: 1px solid var(--medium-gray);
@@ -586,46 +469,48 @@
             transition: left 0.8s ease;
         }
 
-        .pricing-card:hover .price-container::before {
+        .pricing-card:hover .price-container::before,
+        .pricing-card.active .price-container::before {
             left: 100%;
         }
 
         .price {
-            font-size: 3rem;
+            font-size: 2rem;
             font-weight: 900;
             color: var(--primary-red);
             line-height: 1;
-            margin: 0.5rem 0;
+            margin-bottom: 0.3rem;
         }
 
         .price-period {
             color: var(--text-gray);
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
         }
 
         .no-contract {
             background: var(--pure-white);
             color: var(--text-black);
-            padding: 0.7rem 1.5rem;
-            border-radius: 40px;
-            font-size: 0.85rem;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.7rem;
             font-weight: 600;
             display: inline-block;
             box-shadow: 0 4px 12px var(--shadow-dark);
             border: 1px solid var(--medium-gray);
         }
 
-        .features-section {
-            margin-bottom: 2.5rem;
+        .package-content {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .features-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--text-black);
-            margin-bottom: 1.5rem;
-            text-align: center;
+        .package-content.active {
+            opacity: 1;
+            max-height: 1000px;
+            margin-top: 1.5rem;
         }
 
         .features-list {
@@ -636,51 +521,46 @@
         .features-list li {
             display: flex;
             align-items: center;
-            margin-bottom: 1rem;
-            font-size: 1rem;
+            margin-bottom: 0.6rem;
+            font-size: 0.9rem;
             font-weight: 500;
             transition: all 0.3s ease;
-            padding: 0.7rem 1rem;
-            border-radius: 10px;
-            position: relative;
+            padding: 0.4rem;
+            border-radius: 6px;
         }
 
         .features-list li:hover {
             background: var(--light-gray);
-            transform: translateX(8px);
+            transform: translateX(5px);
         }
 
-        .features-list li i {
+        .features-list li::before {
+            content: '•';
             color: var(--primary-red);
-            margin-right: 1rem;
-            font-size: 1.1rem;
-            min-width: 20px;
-            text-align: center;
+            font-size: 1.2rem;
+            margin-right: 0.8rem;
+            font-weight: bold;
         }
 
         .bonus-section {
-            background: var(--light-gray);
-            padding: 2rem 1.8rem;
-            border-radius: 15px;
-            margin-bottom: 2.5rem;
-            border-left: 4px solid var(--primary-red);
-            position: relative;
+            background: linear-gradient(135deg, #FFF5F5 0%, #FFF8F8 100%);
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 3px solid var(--primary-red);
+            margin-bottom: 1.5rem;
         }
 
         .bonus-title {
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             font-weight: 700;
             color: var(--primary-red);
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            margin-bottom: 0.4rem;
         }
 
         .bonus-content {
             color: var(--text-black);
-            line-height: 1.6;
-            font-size: 0.95rem;
+            line-height: 1.4;
+            font-size: 0.8rem;
         }
 
         .package-cta {
@@ -688,9 +568,9 @@
             background: var(--gradient-red);
             color: white;
             border: none;
-            padding: 1.3rem 2rem;
-            border-radius: 15px;
-            font-size: 1.1rem;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
             font-weight: 700;
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -712,93 +592,85 @@
         }
 
         .package-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px var(--shadow-heavy);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px var(--shadow-heavy);
         }
 
         .package-cta:hover::before {
             left: 100%;
         }
 
-        /* Footer */
-        .footer {
+        /* Contact Section */
+        .contact-section {
             background: var(--text-black);
             color: white;
-            text-align: center;
             padding: 3rem 0;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .footer::before {
+        .contact-section::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 1px;
+            height: 2px;
             background: var(--gradient-red);
         }
 
-        .copyright {
-            font-size: 0.95rem;
-            opacity: 0.9;
-            max-width: 800px;
+        .contact-content {
+            max-width: 100%;
             margin: 0 auto;
-            line-height: 1.7;
-            font-weight: 400;
+            padding: 0 1rem;
         }
 
-        /* Audio Controls */
-        .audio-controls {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 1000;
-            background: var(--pure-white);
-            backdrop-filter: blur(20px);
-            padding: 1rem;
-            border-radius: 50px;
-            box-shadow: 0 10px 30px var(--shadow-dark);
-            border: 1px solid var(--medium-gray);
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            transition: all 0.3s ease;
-        }
-
-        .audio-controls:hover {
-            transform: scale(1.05);
-        }
-
-        .audio-toggle {
-            background: none;
-            border: none;
-            color: var(--primary-red);
-            font-size: 1.3rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .audio-toggle:hover {
-            background: var(--light-gray);
-        }
-
-        .audio-toggle.playing {
-            background: var(--gradient-red);
+        .contact-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
             color: white;
         }
 
-        .audio-label {
-            font-size: 0.85rem;
-            color: var(--text-gray);
-            font-weight: 500;
+        .evelyn-intro {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            color: #E8E8E8;
+            font-style: italic;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: var(--gradient-red);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px var(--shadow-medium);
+            margin-bottom: 2rem;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px var(--shadow-heavy);
+        }
+
+        .contact-link i {
+            font-size: 1.2rem;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            line-height: 1.5;
+            margin-top: 2rem;
         }
 
         /* Floating particles */
@@ -841,7 +713,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(50px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -854,7 +726,7 @@
                 transform: translateY(0) rotate(0deg); 
             }
             50% { 
-                transform: translateY(-15px) rotate(5deg); 
+                transform: translateY(-10px) rotate(2deg); 
             }
         }
 
@@ -868,19 +740,7 @@
             100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
 
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { 
-                transform: translateY(0) translateX(-50%); 
-            }
-            40% { 
-                transform: translateY(-12px) translateX(-50%); 
-            }
-            60% { 
-                transform: translateY(-6px) translateX(-50%); 
-            }
-        }
-
-        /* Loading animation */
+        /* Page loader */
         .page-loader {
             position: fixed;
             top: 0;
@@ -908,7 +768,7 @@
             width: 80px;
             height: 80px;
             background: var(--gradient-red);
-            border-radius: 20px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -923,10 +783,10 @@
 
         .loader-text {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: var(--primary-red);
             margin-bottom: 0.5rem;
-            font-weight: 700;
+            font-weight: 800;
         }
 
         .loader-subtitle {
@@ -946,137 +806,48 @@
             }
         }
 
-        /* Mobile Responsiveness */
-        @media (max-width: 1200px) {
-            .pricing-grid {
-                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            }
-            
-            .pricing-card.featured {
-                transform: none;
-            }
-        }
-
-        @media (max-width: 768px) {
-            html {
-                font-size: 14px;
-            }
-
+        /* Larger screens adjustments */
+        @media (min-width: 768px) {
             .container {
-                padding: 0 1rem;
+                padding: 2rem;
+                max-width: 1400px;
             }
 
-            .nav-content {
-                padding: 0 1rem;
-            }
-            
-            .nav-actions {
-                gap: 1rem;
-            }
-            
-            .nav-link {
-                display: none;
-            }
-
-            .hero {
-                padding-top: 80px;
-                min-height: 90vh;
-            }
-            
-            .logo-text {
-                font-size: 3.2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.3rem;
-            }
-
-            .hero-description {
-                font-size: 1.1rem;
-            }
-            
-            .section-title {
-                font-size: 2.8rem;
-            }
-            
             .pricing-grid {
-                grid-template-columns: 1fr;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
                 gap: 2rem;
-            }
-            
-            .pricing-card {
-                padding: 2.5rem 2rem;
+                padding: 0;
             }
 
-            .package-name {
-                font-size: 1.8rem;
+            .logo-text {
+                font-size: 4rem;
             }
 
-            .price {
-                font-size: 2.5rem;
-            }
-            
-            .hero-cta {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .btn-primary,
-            .btn-secondary {
-                width: 100%;
-                justify-content: center;
-                max-width: 300px;
-            }
-            
-            .audio-controls {
-                bottom: 1rem;
-                right: 1rem;
-                padding: 0.8rem;
+            .hero-title {
+                font-size: 3.5rem;
             }
 
             .audio-label {
-                display: none;
+                display: block;
             }
 
-            .scroll-indicator {
-                bottom: 2rem;
+            .nav-logo {
                 font-size: 1.8rem;
             }
-        }
 
-        @media (max-width: 480px) {
-            .logo-text {
-                font-size: 2.8rem;
-            }
-
-            .logo-icon {
-                width: 100px;
-                height: 100px;
+            .nav-logo-icon {
+                width: 50px;
+                height: 50px;
             }
 
-            .logo-icon i {
-                font-size: 3rem;
+            .logo-heart {
+                width: 80px;
+                height: 80px;
             }
 
-            .section-title {
-                font-size: 2.2rem;
-            }
-            
-            .package-name {
-                font-size: 1.6rem;
-            }
-            
-            .price {
-                font-size: 2.2rem;
-            }
-
-            .pricing-card {
-                padding: 2rem 1.5rem;
-            }
-
-            .hero-logo {
-                flex-direction: column;
-                gap: 1rem;
+            .logo-heart i {
+                font-size: 2.5rem;
             }
         }
 
@@ -1123,27 +894,18 @@
                 Grace Club
             </a>
             <div class="nav-actions">
-                <a href="#pricing" class="nav-link">Packages</a>
-                <a href="#about" class="nav-link">About Us</a>
-                <a href="#contact" class="nav-link">Contact</a>
-                <a href="#contact" class="cta-nav">Get Started</a>
+                <a href="#contact" class="cta-nav">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Audio Controls -->
-    <div class="audio-controls">
+    <div class="audio-controls" onclick="toggleAudio()">
         <button class="audio-toggle" id="audioToggle" title="Toggle Lofi Background Music">
             <i class="fas fa-music"></i>
         </button>
-        <span class="audio-label">Lofi Music</span>
+        <span class="audio-label">Lofi</span>
     </div>
-
-    <!-- Hidden audio element for lofi music -->
-    <audio id="lofiAudio" loop>
-        <!-- In production, replace with actual lofi music file -->
-        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmEUBDPU" type="audio/wav">
-    </audio>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -1152,195 +914,289 @@
         
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-crown"></i>
-                    Premium Social Media Management
-                </div>
-                
                 <div class="hero-logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-heart"></i>
+                    <div class="grace-club-logo">
+                        <div class="logo-heart">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="logo-text">Grace Club</div>
                     </div>
-                    <div class="logo-text">Grace Club</div>
                 </div>
                 
-                <div class="hero-subtitle">Elevate Your Brand with Unmatched Elegance</div>
+                <h1 class="hero-title">Pick Your Needs!</h1>
                 
-                <div class="hero-description">
-                    Transform your social media presence with our premium design services. 
-                    We craft compelling visual narratives that captivate audiences and drive exceptional engagement 
-                    through strategic content creation and professional brand storytelling.
-                </div>
-                
-                <div class="hero-cta">
-                    <a href="#pricing" class="btn-primary">
-                        <i class="fas fa-rocket"></i>
-                        Explore Packages
-                    </a>
-                    <a href="#about" class="btn-secondary">
-                        <i class="fas fa-play"></i>
-                        Watch Demo
-                    </a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="scroll-indicator" onclick="smoothScrollTo('#pricing')">
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </section>
+                <p class="hero-subtitle">
+                    Premium social media management packages designed for your brand's success
+                </p>
 
-    <!-- Pricing Section -->
-    <section class="pricing-section" id="pricing">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge">Choose Your Excellence</div>
-                <h2 class="section-title">Pick Your Needs!</h2>
-                <div class="section-subtitle">
-                    Meticulously crafted packages designed to elevate your brand presence 
-                    with professional excellence and creative distinction.
-                </div>
-            </div>
-
-            <div class="pricing-grid">
-                <!-- Aurum Package -->
-                <div class="pricing-card" data-package="aurum">
-                    <div class="package-header">
-                        <h3 class="package-name">Aurum Package</h3>
-                    </div>
-                    
-                    <div class="price-container">
-                        <div class="price">Rp 1.300K</div>
-                        <div class="price-period">/month</div>
-                        <div class="no-contract">*No Minimum Contract Required</div>
-                    </div>
-                    
-                    <div class="features-section">
-                        <div class="features-title">Package Includes</div>
-                        <ul class="features-list">
-                            <li><i class="fas fa-palette"></i> 18 Feed Designs</li>
-                            <li><i class="fas fa-images"></i> 5 Story Designs</li>
-                            <li><i class="fas fa-video"></i> 2 Video Reels</li>
-                        </ul>
-                    </div>
-
-                    <div class="bonus-section">
-                        <div class="bonus-title">
-                            <i class="fas fa-gift"></i>
-                            Bonus Features
+                <div class="pricing-grid" id="packages">
+                    <!-- Aurum Package -->
+                    <div class="pricing-card" id="aurum-card" onclick="togglePackage('aurum')">
+                        <div class="package-header">
+                            <h3 class="package-name">Paket Aurum</h3>
+                            <div class="price-container">
+                                <div class="price">Rp 1.300 rb</div>
+                                <div class="price-period">/bulan</div>
+                                <div class="no-contract">*Tanpa Minimum Kontrak</div>
+                            </div>
                         </div>
-                        <div class="bonus-content">
-                            Professional Copywriting, Strategic Content Concepts, 
-                            Monthly Posting Calendar, WhatsApp Discussion Group, 
-                            Unlimited Design Revisions
+
+                        <div class="package-content" id="aurum-content">
+                            <ul class="features-list">
+                                <li>18 Feed Design</li>
+                                <li>5 Story Design</li>
+                                <li>2 Video Reels</li>
+                            </ul>
+
+                            <div class="bonus-section">
+                                <div class="bonus-title">Bonus:</div>
+                                <div class="bonus-content">
+                                    Copywriting, Konsep Konten, Kalender Posting, Group WA Diskusi, Revisi Design
+                                </div>
+                            </div>
+
+                            <button class="package-cta" onclick="event.stopPropagation(); selectPackage('Aurum', '1.300 rb')">
+                                Choose Aurum
+                            </button>
                         </div>
                     </div>
 
-                    <button class="package-cta" onclick="selectPackage('Aurum', '1.300K')">
-                        Choose Aurum Package
-                    </button>
-                </div>
-
-                <!-- Argentum Package (Featured) -->
-                <div class="pricing-card featured" data-package="argentum">
-                    <div class="featured-badge">Most Popular</div>
-                    
-                    <div class="package-header">
-                        <h3 class="package-name">Argentum Package</h3>
-                    </div>
-                    
-                    <div class="price-container">
-                        <div class="price">Rp 1.700K</div>
-                        <div class="price-period">/month</div>
-                        <div class="no-contract">*No Minimum Contract Required</div>
-                    </div>
-                    
-                    <div class="features-section">
-                        <div class="features-title">Package Includes</div>
-                        <ul class="features-list">
-                            <li><i class="fas fa-palette"></i> 25 Feed Designs</li>
-                            <li><i class="fas fa-images"></i> 10 Story Designs</li>
-                            <li><i class="fas fa-video"></i> 4 Video Reels</li>
-                            <li><i class="fas fa-robot"></i> Admin Posting</li>
-                        </ul>
-                    </div>
-
-                    <div class="bonus-section">
-                        <div class="bonus-title">
-                            <i class="fas fa-crown"></i>
-                            Premium Bonus
+                    <!-- Argentum Package -->
+                    <div class="pricing-card" id="argentum-card" onclick="togglePackage('argentum')">
+                        <div class="package-header">
+                            <h3 class="package-name">Paket Argentum</h3>
+                            <div class="price-container">
+                                <div class="price">Rp 1.700 rb</div>
+                                <div class="price-period">/bulan</div>
+                                <div class="no-contract">*Tanpa Minimum Kontrak</div>
+                            </div>
                         </div>
-                        <div class="bonus-content">
-                            Expert Copywriting, Advanced Content Strategy, 
-                            Posting Calendar Management, Hashtag Optimization, 
-                            Design & Video Revisions, WhatsApp Discussion Group
+
+                        <div class="package-content" id="argentum-content">
+                            <ul class="features-list">
+                                <li>25 Feed Design</li>
+                                <li>10 Story Design</li>
+                                <li>4 Video Reels</li>
+                                <li>Admin Posting</li>
+                            </ul>
+
+                            <div class="bonus-section">
+                                <div class="bonus-title">Bonus:</div>
+                                <div class="bonus-content">
+                                    Copywriting, Konsep Konten, Kalender Posting, Optimasi Hashtag, Revisi Design/Video, Group WA Diskusi
+                                </div>
+                            </div>
+
+                            <button class="package-cta" onclick="event.stopPropagation(); selectPackage('Argentum', '1.700 rb')">
+                                Choose Argentum
+                            </button>
                         </div>
                     </div>
 
-                    <button class="package-cta" onclick="selectPackage('Argentum', '1.700K')">
-                        Choose Argentum Package
-                    </button>
-                </div>
-
-                <!-- Platinum Package -->
-                <div class="pricing-card" data-package="platinum">
-                    <div class="package-header">
-                        <h3 class="package-name">Platinum Package</h3>
-                    </div>
-                    
-                    <div class="price-container">
-                        <div class="price">Rp 2.300K</div>
-                        <div class="price-period">/month</div>
-                        <div class="no-contract">*No Minimum Contract Required</div>
-                    </div>
-                    
-                    <div class="features-section">
-                        <div class="features-title">Package Includes</div>
-                        <ul class="features-list">
-                            <li><i class="fas fa-palette"></i> 45 Feed Designs</li>
-                            <li><i class="fas fa-images"></i> 20 Story Designs</li>
-                            <li><i class="fas fa-video"></i> 8 Video Reels</li>
-                            <li><i class="fas fa-robot"></i> Admin Posting</li>
-                        </ul>
-                    </div>
-
-                    <div class="bonus-section">
-                        <div class="bonus-title">
-                            <i class="fas fa-diamond"></i>
-                            Elite Bonus
+                    <!-- Platinum Package -->
+                    <div class="pricing-card" id="platinum-card" onclick="togglePackage('platinum')">
+                        <div class="package-header">
+                            <h3 class="package-name">Paket Platinum</h3>
+                            <div class="price-container">
+                                <div class="price">Rp 2.300 rb</div>
+                                <div class="price-period">/bulan</div>
+                                <div class="no-contract">*Tanpa Minimum Kontrak</div>
+                            </div>
                         </div>
-                        <div class="bonus-content">
-                            Master-Level Copywriting, Strategic Content Planning, 
-                            Calendar Management, Professional Video Revisions, 
-                            Advanced Hashtag Optimization, WhatsApp Discussion Group, 
-                            Curated KOL Collaboration Lists
+
+                        <div class="package-content" id="platinum-content">
+                            <ul class="features-list">
+                                <li>45 Feed Design</li>
+                                <li>20 Story Design</li>
+                                <li>8 Video Reels</li>
+                                <li>Admin Posting</li>
+                            </ul>
+
+                            <div class="bonus-section">
+                                <div class="bonus-title">Bonus:</div>
+                                <div class="bonus-content">
+                                    Copywriting, Konsep Konten, Kalender Posting, Revisi Video, Optimasi Hashtag, Group WA Diskusi, LIST KOL RELATED
+                                </div>
+                            </div>
+
+                            <button class="package-cta" onclick="event.stopPropagation(); selectPackage('Platinum', '2.300 rb')">
+                                Choose Platinum
+                            </button>
                         </div>
                     </div>
-
-                    <button class="package-cta" onclick="selectPackage('Platinum', '2.300K')">
-                        Choose Platinum Package
-                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
         <div class="container">
-            <div class="copyright">
-                <strong>@graceclubz's property, 2025.</strong><br>
-                All rights reserved. Any form of plagiarism and heavy reference are strictly prohibited.<br>
-                Crafted with excellence for brands that demand distinction.
+            <div class="contact-content">
+                <h2 class="contact-title">Ready to Get Started?</h2>
+                <p class="evelyn-intro">
+                    Hi! I'm Evelyn, your dedicated social media strategist. 
+                    Let's create something beautiful together and elevate your brand to new heights.
+                </p>
+                <a href="https://x.com/graceclubz" target="_blank" class="contact-link">
+                    <i class="fab fa-x-twitter"></i>
+                    Contact Evelyn on X
+                </a>
+                <div class="copyright">
+                    <strong>@graceclubz's property, 2025.</strong><br>
+                    Any form of plagiarism and heavy reference are strictly prohibited.<br>
+                    Crafted with love by Evelyn for brands that demand excellence.
+                </div>
             </div>
         </div>
-    </footer>
+    </section>
 
     <script>
-        // Variables
+        // Real LoFi Audio Generation using Web Audio API
+        let audioContext;
         let isLofiPlaying = false;
+        let activePackage = null;
+        let masterGain;
+        let oscillators = [];
+        let noiseBuffer;
+        
         const audioToggle = document.getElementById('audioToggle');
-        const lofiAudio = document.getElementById('lofiAudio');
+
+        // Create LoFi Background Music
+        class LoFiGenerator {
+            constructor() {
+                this.context = null;
+                this.masterGain = null;
+                this.oscillators = [];
+                this.noiseNode = null;
+            }
+
+            async init() {
+                this.context = new (window.AudioContext || window.webkitAudioContext)();
+                this.masterGain = this.context.createGain();
+                this.masterGain.gain.setValueAtTime(0.15, this.context.currentTime);
+                this.masterGain.connect(this.context.destination);
+                
+                // Create noise buffer for texture
+                await this.createNoiseBuffer();
+            }
+
+            async createNoiseBuffer() {
+                const bufferSize = this.context.sampleRate * 2; // 2 seconds
+                noiseBuffer = this.context.createBuffer(1, bufferSize, this.context.sampleRate);
+                const output = noiseBuffer.getChannelData(0);
+                
+                for (let i = 0; i < bufferSize; i++) {
+                    output[i] = Math.random() * 2 - 1;
+                }
+            }
+
+            createLoFiLoop() {
+                // Main chord progression (Am-F-C-G in lofi style)
+                const chords = [
+                    [220, 262, 330], // Am
+                    [175, 220, 262], // F
+                    [262, 330, 392], // C
+                    [196, 247, 294]  // G
+                ];
+
+                let chordIndex = 0;
+                const chordDuration = 4; // seconds per chord
+
+                const playChord = () => {
+                    // Stop previous oscillators
+                    this.oscillators.forEach(osc => {
+                        try { osc.stop(); } catch(e) {}
+                    });
+                    this.oscillators = [];
+
+                    const currentChord = chords[chordIndex];
+                    const now = this.context.currentTime;
+
+                    currentChord.forEach((freq, i) => {
+                        // Main tone
+                        const osc = this.context.createOscillator();
+                        const gain = this.context.createGain();
+                        const filter = this.context.createBiquadFilter();
+
+                        osc.type = 'sine';
+                        osc.frequency.setValueAtTime(freq, now);
+                        
+                        // Add slight detuning for warmth
+                        osc.frequency.setValueAtTime(freq + (Math.random() - 0.5) * 2, now);
+
+                        // LoFi filter
+                        filter.type = 'lowpass';
+                        filter.frequency.setValueAtTime(800 + Math.random() * 400, now);
+                        filter.Q.setValueAtTime(0.5, now);
+
+                        gain.gain.setValueAtTime(0, now);
+                        gain.gain.linearRampToValueAtTime(0.1 / currentChord.length, now + 0.1);
+                        gain.gain.setValueAtTime(0.1 / currentChord.length, now + chordDuration - 0.1);
+                        gain.gain.linearRampToValueAtTime(0, now + chordDuration);
+
+                        osc.connect(filter);
+                        filter.connect(gain);
+                        gain.connect(this.masterGain);
+
+                        osc.start(now);
+                        osc.stop(now + chordDuration);
+                        
+                        this.oscillators.push(osc);
+                    });
+
+                    chordIndex = (chordIndex + 1) % chords.length;
+                };
+
+                // Start first chord and set interval
+                playChord();
+                this.chordInterval = setInterval(playChord, chordDuration * 1000);
+
+                // Add vinyl crackle
+                this.addVinylTexture();
+            }
+
+            addVinylTexture() {
+                if (!noiseBuffer) return;
+
+                const noise = this.context.createBufferSource();
+                const noiseGain = this.context.createGain();
+                const noiseFilter = this.context.createBiquadFilter();
+
+                noise.buffer = noiseBuffer;
+                noise.loop = true;
+
+                noiseFilter.type = 'highpass';
+                noiseFilter.frequency.setValueAtTime(1000, this.context.currentTime);
+
+                noiseGain.gain.setValueAtTime(0.02, this.context.currentTime);
+
+                noise.connect(noiseFilter);
+                noiseFilter.connect(noiseGain);
+                noiseGain.connect(this.masterGain);
+
+                noise.start();
+                this.noiseNode = noise;
+            }
+
+            stop() {
+                if (this.chordInterval) {
+                    clearInterval(this.chordInterval);
+                }
+                
+                this.oscillators.forEach(osc => {
+                    try { osc.stop(); } catch(e) {}
+                });
+                
+                if (this.noiseNode) {
+                    try { this.noiseNode.stop(); } catch(e) {}
+                }
+                
+                this.oscillators = [];
+            }
+        }
+
+        const lofiGenerator = new LoFiGenerator();
 
         // Page Loading Animation
         window.addEventListener('load', function() {
@@ -1357,8 +1213,16 @@
         // Initialize all animations after page load
         function initializeAnimations() {
             createFloatingParticles();
-            initializeScrollAnimations();
             initializeCinematicEffects();
+            // Auto-start lofi after first user interaction
+            document.addEventListener('click', startLofiOnFirstClick, { once: true });
+        }
+
+        // Auto-start lofi on first user interaction
+        async function startLofiOnFirstClick() {
+            if (!isLofiPlaying) {
+                setTimeout(() => toggleAudio(), 1000);
+            }
         }
 
         // Navbar Scroll Effect
@@ -1371,248 +1235,155 @@
             }
         });
 
-        // Smooth scrolling function
-        function smoothScrollTo(target) {
-            const element = document.querySelector(target);
-            if (element) {
-                const headerOffset = 100;
-                const elementPosition = element.offsetTop;
-                const offsetPosition = elementPosition - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
+        // Toggle Package Details
+        function togglePackage(packageName) {
+            const card = document.getElementById(packageName + '-card');
+            const content = document.getElementById(packageName + '-content');
+            
+            // Close other packages
+            if (activePackage && activePackage !== packageName) {
+                const activeCard = document.getElementById(activePackage + '-card');
+                const activeContent = document.getElementById(activePackage + '-content');
+                activeCard.classList.remove('active');
+                activeContent.classList.remove('active');
+            }
+            
+            // Toggle current package
+            if (activePackage === packageName) {
+                card.classList.remove('active');
+                content.classList.remove('active');
+                activePackage = null;
+            } else {
+                card.classList.add('active');
+                content.classList.add('active');
+                activePackage = packageName;
+                
+                // Smooth scroll to card
+                setTimeout(() => {
+                    card.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'center' 
+                    });
+                }, 100);
             }
         }
 
-        // Package selection with enhanced animation and modal
+        // Package Selection
         function selectPackage(packageName, price) {
-            const button = event.target;
-            const card = button.closest('.pricing-card');
+            // Create success notification
+            showSuccessNotification(`${packageName} Package selected! Evelyn will contact you soon.`);
             
-            // Create selection effect
-            card.style.transform = card.classList.contains('featured') ? 'scale(1.05)' : 'scale(1.02)';
-            card.style.boxShadow = '0 40px 100px rgba(165, 42, 42, 0.4)';
-            
-            // Button success state
-            const originalText = button.innerHTML;
-            button.innerHTML = '<i class="fas fa-check"></i> Selected!';
-            button.style.background = 'linear-gradient(135deg, #28a745, #20c997)';
-            
-            // Reset animation
+            // Redirect to contact after delay
             setTimeout(() => {
-                card.style.transform = '';
-                card.style.boxShadow = '';
-                button.innerHTML = originalText;
-                button.style.background = '';
-            }, 3000);
-
-            // Show selection modal
-            setTimeout(() => {
-                showSelectionModal(packageName, price);
-            }, 600);
-
-            // Add selection sound effect (visual feedback)
-            createSelectionRipple(button);
+                window.open('https://x.com/graceclubz', '_blank');
+            }, 2000);
         }
 
-        // Create selection ripple effect
-        function createSelectionRipple(button) {
-            const ripple = document.createElement('div');
-            const rect = button.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            
-            ripple.style.cssText = `
-                position: absolute;
-                border-radius: 50%;
-                background: rgba(255, 255, 255, 0.6);
-                transform: scale(0);
-                animation: ripple 0.6s linear;
-                left: ${rect.left + rect.width / 2 - size / 2}px;
-                top: ${rect.top + rect.height / 2 - size / 2}px;
-                width: ${size}px;
-                height: ${size}px;
-                pointer-events: none;
-                z-index: 1000;
-            `;
-            
-            document.body.appendChild(ripple);
-            
-            setTimeout(() => ripple.remove(), 600);
-        }
-
-        // Enhanced selection modal
-        function showSelectionModal(packageName, price) {
-            const modal = document.createElement('div');
-            modal.style.cssText = `
+        // Success notification
+        function showSuccessNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
                 position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.8);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: linear-gradient(135deg, #A52A2A, #8B0000);
+                color: white;
+                padding: 1.5rem 2rem;
+                border-radius: 15px;
+                font-size: 1rem;
+                font-weight: 600;
+                text-align: center;
+                z-index: 10001;
+                box-shadow: 0 15px 50px rgba(165, 42, 42, 0.4);
+                animation: successPop 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
                 backdrop-filter: blur(10px);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                z-index: 10000;
-                opacity: 0;
-                transition: opacity 0.4s ease;
+                border: 2px solid rgba(255, 255, 255, 0.2);
+                max-width: 90%;
             `;
             
-            modal.innerHTML = `
-                <div style="
-                    background: white;
-                    padding: 3rem;
-                    border-radius: 25px;
-                    text-align: center;
-                    max-width: 500px;
-                    width: 90%;
-                    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
-                    transform: scale(0.8);
-                    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                ">
-                    <div style="
-                        width: 100px;
-                        height: 100px;
-                        background: linear-gradient(135deg, #A52A2A, #8B0000);
-                        border-radius: 50%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        margin: 0 auto 2rem;
-                        animation: modalPulse 2s ease-in-out infinite;
-                    ">
-                        <i class="fas fa-heart" style="color: white; font-size: 2.5rem;"></i>
-                    </div>
-                    <h3 style="
-                        font-family: 'Playfair Display', serif;
-                        font-size: 2.2rem;
-                        color: #1A1A1A;
-                        margin-bottom: 1rem;
-                    ">Perfect Choice!</h3>
-                    <p style="
-                        color: #2F2F2F;
-                        margin-bottom: 2.5rem;
-                        font-size: 1.1rem;
-                        line-height: 1.6;
-                    ">
-                        You've selected the <strong>${packageName} Package</strong> 
-                        at <strong>Rp ${price}/month</strong>. 
-                        <br><br>
-                        Our expert team will contact you within 24 hours to begin crafting 
-                        your brand's extraordinary social media journey.
-                    </p>
-                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                        <button onclick="this.parentElement.parentElement.parentElement.remove()" style="
-                            background: linear-gradient(135deg, #A52A2A, #8B0000);
-                            color: white;
-                            border: none;
-                            padding: 1rem 2rem;
-                            border-radius: 50px;
-                            font-weight: 600;
-                            cursor: pointer;
-                            transition: transform 0.3s ease;
-                            flex: 1;
-                            min-width: 120px;
-                        " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
-                            Continue
-                        </button>
-                        <button onclick="window.open('https://wa.me/1234567890', '_blank')" style="
-                            background: transparent;
-                            color: #A52A2A;
-                            border: 2px solid #A52A2A;
-                            padding: 1rem 2rem;
-                            border-radius: 50px;
-                            font-weight: 600;
-                            cursor: pointer;
-                            transition: all 0.3s ease;
-                            flex: 1;
-                            min-width: 120px;
-                        " onmouseover="this.style.background='#A52A2A'; this.style.color='white'" onmouseout="this.style.background='transparent'; this.style.color='#A52A2A'">
-                            Contact Now
-                        </button>
+            notification.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <i class="fas fa-check-circle" style="font-size: 1.5rem;"></i>
+                    <div>
+                        <div style="font-size: 1.1rem; margin-bottom: 0.3rem;">Success!</div>
+                        <div style="opacity: 0.9; font-size: 0.9rem;">${message}</div>
                     </div>
                 </div>
             `;
             
-            // Add modal styles
+            // Add animation keyframes
             const style = document.createElement('style');
             style.textContent = `
-                @keyframes modalPulse {
-                    0%, 100% { transform: scale(1); }
-                    50% { transform: scale(1.05); }
+                @keyframes successPop {
+                    0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+                    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
                 }
             `;
             document.head.appendChild(style);
             
-            document.body.appendChild(modal);
+            document.body.appendChild(notification);
             
-            // Show modal with animation
             setTimeout(() => {
-                modal.style.opacity = '1';
-                modal.querySelector('div').style.transform = 'scale(1)';
-            }, 100);
-            
-            // Close on backdrop click
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    modal.style.opacity = '0';
-                    setTimeout(() => modal.remove(), 400);
-                }
-            });
+                notification.style.opacity = '0';
+                notification.style.transform = 'translate(-50%, -50%) scale(0.8)';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
         }
 
         // Enhanced lofi audio controls
-        audioToggle.addEventListener('click', function() {
+        async function toggleAudio() {
             if (!isLofiPlaying) {
-                // Start lofi music (simulated)
-                audioToggle.innerHTML = '<i class="fas fa-pause"></i>';
-                audioToggle.classList.add('playing');
-                isLofiPlaying = true;
-                
-                // Visual feedback
-                audioToggle.style.transform = 'scale(1.2)';
-                setTimeout(() => {
-                    audioToggle.style.transform = 'scale(1)';
-                }, 200);
+                try {
+                    await lofiGenerator.init();
+                    lofiGenerator.createLoFiLoop();
+                    
+                    audioToggle.innerHTML = '<i class="fas fa-pause"></i>';
+                    audioToggle.classList.add('playing');
+                    isLofiPlaying = true;
+                    
+                    // Visual feedback
+                    audioToggle.style.transform = 'scale(1.2)';
+                    setTimeout(() => {
+                        audioToggle.style.transform = 'scale(1)';
+                    }, 200);
 
-                // In production, uncomment to play actual audio:
-                // lofiAudio.play().catch(console.log);
-                
-                // Show music notification
-                showMusicNotification('Lofi background music started');
+                    showMusicNotification('🎵 LoFi beats started - Enjoy the chill vibes!');
+                    
+                } catch (error) {
+                    console.log('Audio not supported:', error);
+                    showMusicNotification('🎵 Audio not supported in this browser');
+                }
                 
             } else {
-                // Pause lofi music
+                lofiGenerator.stop();
                 audioToggle.innerHTML = '<i class="fas fa-music"></i>';
                 audioToggle.classList.remove('playing');
                 isLofiPlaying = false;
                 
-                // In production, uncomment:
-                // lofiAudio.pause();
-                
-                showMusicNotification('Background music paused');
+                showMusicNotification('🎵 LoFi beats paused');
             }
-        });
+        }
 
         // Music notification
         function showMusicNotification(message) {
             const notification = document.createElement('div');
             notification.style.cssText = `
                 position: fixed;
-                top: 6rem;
-                right: 2rem;
-                background: rgba(26, 26, 26, 0.9);
+                top: 5rem;
+                right: 1rem;
+                background: rgba(26, 26, 26, 0.95);
                 color: white;
-                padding: 1rem 1.5rem;
-                border-radius: 10px;
-                font-size: 0.9rem;
+                padding: 0.8rem 1rem;
+                border-radius: 12px;
+                font-size: 0.8rem;
                 z-index: 1001;
                 transform: translateX(100%);
-                transition: transform 0.3s ease;
+                transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
                 backdrop-filter: blur(10px);
+                border: 1px solid rgba(165, 42, 42, 0.3);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+                max-width: 250px;
             `;
             notification.textContent = message;
             
@@ -1624,8 +1395,8 @@
             
             setTimeout(() => {
                 notification.style.transform = 'translateX(100%)';
-                setTimeout(() => notification.remove(), 300);
-            }, 3000);
+                setTimeout(() => notification.remove(), 400);
+            }, 4000);
         }
 
         // Create floating particles
@@ -1641,38 +1412,16 @@
                 particle.style.width = size + 'px';
                 particle.style.height = size + 'px';
                 particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDuration = (Math.random() * 15 + 15) + 's';
-                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (Math.random() * 25 + 25) + 's';
+                particle.style.animationDelay = Math.random() * 25 + 's';
+                
+                // Random shapes
+                if (Math.random() > 0.7) {
+                    particle.style.borderRadius = '20%';
+                }
                 
                 container.appendChild(particle);
             }
-        }
-
-        // Initialize scroll animations
-        function initializeScrollAnimations() {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-
-            // Observe elements for animation
-            document.querySelectorAll('.pricing-card, .section-header').forEach((element, index) => {
-                if (!element.style.animationDelay) {
-                    element.style.opacity = '0';
-                    element.style.transform = 'translateY(30px)';
-                    element.style.transition = `all 0.8s ease ${index * 0.1}s`;
-                    observer.observe(element);
-                }
-            });
         }
 
         // Cinematic background effects
@@ -1681,70 +1430,33 @@
             let direction = 1;
             
             setInterval(() => {
-                angle += direction * 0.2;
+                angle += direction * 0.05;
                 
-                if (angle >= 225 || angle <= 45) {
+                if (angle >= 160 || angle <= 110) {
                     direction *= -1;
                 }
                 
                 const heroSection = document.querySelector('.hero');
                 if (heroSection) {
                     heroSection.style.background = `linear-gradient(${angle}deg, 
-                        var(--light-gray) 0%, 
-                        var(--pure-white) 50%, 
-                        var(--light-gray) 100%)`;
+                        #FEFEFE 0%, 
+                        #F8F8F8 50%, 
+                        #FEFEFE 100%)`;
                 }
-            }, 50);
-        }
-
-        // Enhanced card hover effects
-        document.querySelectorAll('.pricing-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
-                
-                // Add subtle tilt effect
-                const rect = this.getBoundingClientRect();
-                const centerX = rect.left + rect.width / 2;
-                const centerY = rect.top + rect.height / 2;
-                
-                this.addEventListener('mousemove', handleCardMouseMove);
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = this.classList.contains('featured') ? 'scale(1.02)' : '';
-                this.removeEventListener('mousemove', handleCardMouseMove);
-            });
-        });
-
-        function handleCardMouseMove(e) {
-            const card = e.currentTarget;
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateX = (y - centerY) / 20;
-            const rotateY = (centerX - x) / 20;
-            
-            const scale = card.classList.contains('featured') ? 1.02 : 1;
-            card.style.transform = `scale(${scale}) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+            }, 100);
         }
 
         // Keyboard navigation
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                // Close any open modals
-                document.querySelectorAll('[style*="position: fixed"]').forEach(modal => {
-                    if (modal.style.zIndex === '10000') {
-                        modal.style.opacity = '0';
-                        setTimeout(() => modal.remove(), 400);
-                    }
-                });
-            }
-            
             if (e.key === ' ' && e.target === document.body) {
                 e.preventDefault();
-                audioToggle.click();
+                toggleAudio();
+            }
+            
+            if (e.key === 'Escape') {
+                if (activePackage) {
+                    togglePackage(activePackage);
+                }
             }
         });
 
@@ -1760,12 +1472,10 @@
             }
         }
 
-        // Throttled scroll listener
         window.addEventListener('scroll', requestTick);
 
         // Resize handler
         window.addEventListener('resize', function() {
-            // Recreate particles on significant resize
             if (Math.abs(window.innerWidth - this.lastWidth) > 200) {
                 const container = document.getElementById('floatingParticles');
                 if (container) {
@@ -1776,21 +1486,20 @@
             }
         });
 
-        // Initialize last width
         window.lastWidth = window.innerWidth;
 
-        // Preload critical resources
-        const preloadLinks = [
-            'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap',
-            'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
-        ];
+        // Welcome message
+        setTimeout(() => {
+            if (!document.hidden) {
+                showMusicNotification('✨ Welcome to Grace Club! Tap the music button for chill LoFi beats.');
+            }
+        }, 3000);
 
-        preloadLinks.forEach(href => {
-            const link = document.createElement('link');
-            link.rel = 'preload';
-            link.as = 'style';
-            link.href = href;
-            document.head.appendChild(link);
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', () => {
+            if (lofiGenerator) {
+                lofiGenerator.stop();
+            }
         });
     </script>
 </body>
